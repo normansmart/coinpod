@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import '../signup.css'
 
 function SignupForm() {
 
@@ -17,31 +17,33 @@ function SignupForm() {
         console.log(e.target.pass.value)
     };
 
-    const renderForm = (
-        <div className="signup-form">
-        <form onSubmit={ handleSubmit }>
-            <div className="signup-input-container">
-            <label>Username </label>
-            <input type="text" name="uname" required />
+  
+    return (
+
+        <div className="form">
+        <h2 className="title">Sign Up</h2>
+        {/* {isSubmitted ? <div>User is successfully logged in</div> : renderForm} */}
+        <form className="signup-form" onSubmit={ handleSubmit }>
+
+          
+        <input type="text" name="first_name" required placeholder="First Name"/>
+            <input type="text" name="last_name" required placeholder="Last Name"/>
+           
+            <input type="text" name="username" required placeholder="Username"/>
             {/* {renderErrorMessage("uname")} */}
-            </div>
-            <div className="signup-input-container">
-            <label>Password </label>
-            <input type="password" name="pass" required />
+          
+        
+            
+            <input type="password" name="pass" required placeholder="Password"/>
             {/* {renderErrorMessage("pass")} */}
-            </div>
+
+           
+           
+
             <div className="signup-button-container">
             <input type="submit" />
             </div>
         </form>
-        </div>
-    );
-
-    return (
-        <div className="login-form">
-        <div className="title">Sign Up</div>
-        {/* {isSubmitted ? <div>User is successfully logged in</div> : renderForm} */}
-        { renderForm }
         </div>
     );
 }

@@ -1,0 +1,50 @@
+
+
+.dashboard-container{
+    width: 100%;
+   
+}
+
+
+.top-bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.title{
+    width: 50%;
+  
+
+
+}
+
+h2{
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.funds-container{
+    width: 30%;
+
+}
+
+
+.tab-background{
+    width: 150px;
+    height: 200px;
+    background-color: antiquewhite;
+    margin: 10px;
+
+}
+
+.goal-dash-tabs{
+  width: 100%;
+   
+ background-color: blueviolet;
+ position: relative;
+ bottom: 0%;
+  
+}

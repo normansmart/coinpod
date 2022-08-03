@@ -9,16 +9,16 @@ function LoginForm() {
     };
 
     const renderForm = (
-        <div className="login-form">
+        <div className="form">
         <form onSubmit={ handleSubmit }>
             <div className="login-input-container">
-            <label>Username </label>
-            <input type="text" name="uname" required />
+          
+            <input type="text" name="uname" required  placeholder="Username"/>
             {/* {renderErrorMessage("uname")} */}
             </div>
             <div className="login-input-container">
-            <label>Password </label>
-            <input type="password" name="pass" required />
+           
+            <input type="password" name="pass" required  placeholder="Password"/>
             {/* {renderErrorMessage("pass")} */}
             </div>
             <div className="login-button-container">
@@ -29,8 +29,8 @@ function LoginForm() {
     );
 
     return (
-        <div className="login-form">
-        <div className="title">Log In</div>
+        <div className="form">
+        <h2 className="title">Log In</h2>
         {/* {isSubmitted ? <div>User is successfully logged in</div> : renderForm} */}
         { renderForm }
         </div>
