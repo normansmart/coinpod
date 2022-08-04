@@ -10,21 +10,19 @@ function LoginForm() {
 
     const renderForm = (
         <div className="form">
-        <form onSubmit={ handleSubmit }>
-            <div className="login-input-container">
-          
-            <input type="text" name="uname" required  placeholder="Username"/>
-            {/* {renderErrorMessage("uname")} */}
-            </div>
-            <div className="login-input-container">
-           
-            <input type="password" name="pass" required  placeholder="Password"/>
-            {/* {renderErrorMessage("pass")} */}
-            </div>
-            <div className="login-button-container">
-            <input type="submit" />
-            </div>
-        </form>
+            <form onSubmit={ handleSubmit }>
+                <div className="login-input-container">
+                    <input type="text" name="username" required  placeholder="Username"/>
+                    {/* {renderErrorMessage("uname")} */}
+                </div>
+                <div className="login-input-container">
+                    <input type="password" name="password" required  placeholder="Password"/>
+                    {/* {renderErrorMessage("pass")} */}
+                </div>
+                <div className="login-button-container">
+                    <input type="submit" />
+                </div>
+            </form>
         </div>
     );
 

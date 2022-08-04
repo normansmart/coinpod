@@ -17,22 +17,15 @@ function App() {
 
 
 
-useEffect( () => {
-  fetch('http://127.0.0.1:3000/users/18')
-  .then(response => response.json())
-  .then( item => {
-    setUsers(item)
-    setBanks(item.banks)
-    setGoals(item.goals)
-   
-
-  })
-
-  
-} , [])
-
-
-console.log(Goals)
+  // useEffect( () => {
+  //   fetch('http://127.0.0.1:3000/users/3')
+  //   .then(response => response.json())
+  //   .then( item => {
+  //     setUsers(item)
+  //     setBanks(item.banks)
+  //     setGoals(item.goals)
+  //   })
+  // } , [])
 
 
   return (
@@ -41,6 +34,8 @@ console.log(Goals)
         <Navbar/>
       </div>
       <div>
+        <SignupForm/>
+        <LoginForm/>
        {/* <SigninPage /> */}
 
 
