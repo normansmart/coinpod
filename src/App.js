@@ -14,16 +14,18 @@ function App() {
   const [Users , setUsers] = useState({})
   const [Banks , setBanks] = useState([])
   const [Goals , setGoals] = useState([])
+  const [Commits , setCommits] = useState([])
 
 
 
 useEffect( () => {
-  fetch('http://127.0.0.1:3000/users/18')
+  fetch('http://127.0.0.1:3000/users/7')
   .then(response => response.json())
   .then( item => {
     setUsers(item)
     setBanks(item.banks)
     setGoals(item.goals)
+    setCommits(item.commits)
    
 
   })
@@ -32,7 +34,7 @@ useEffect( () => {
 } , [])
 
 
-console.log(Goals)
+console.log(Commits)
 
 
   return (
@@ -45,8 +47,7 @@ console.log(Goals)
 
 
         {/* <LoginForm/> */}
-
-        {/* <DashBoard user={Users} banks={Banks} goals={Goals} /> */}
+{/*  <DashBoard user={Users} banks={Banks} goals={Goals} /> */}
         <PodsPage user={Users} banks={Banks} goals={Goals} />
       </div>
     </div>

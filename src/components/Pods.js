@@ -1,14 +1,15 @@
 import React from "react";
 
-function Pods({goal}) {
+function Pods({goal , handleSelect}) {
 
 
     const diff = (goal.current / goal.goal_amount) * 100
 
     return (
-        <div className="pod-container">
+        <div className="pod-container" onClick={()=> handleSelect(goal)}>
 
             <div className="goal-tracker" style={{ height: `${diff}%` }}></div>
+            <div className="goal-tracker-reverse" style={{ height: `${diff}%` }}></div>
 
             <h1 className="goal-name"> {goal.name} </h1>
 
