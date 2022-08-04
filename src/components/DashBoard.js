@@ -1,6 +1,7 @@
 import React from "react";
 import '../dashboard.css'
 import DashboardGoalTab from "./DashBoardGoalsTabs";
+import TopBar from "./TopBar";
 const DashBoard = ({ user, banks, goals }) => {
 
 
@@ -16,19 +17,24 @@ const DashBoard = ({ user, banks, goals }) => {
     const fundSum = funds.reduce((a, b) => a + b, 0)
 
 
-    console.log(fundSum)
+  
 
 
     const goalTabs = goals.map(
         item => {
 
             return (
-                <>
-                    <div className="tab-background" key={item.id}> 
-                    <DashboardGoalTab key={item.id} goal={item} />
-                    </div>
-                </>
 
+                <div className="goal-tabs" key={item.id} >
+
+                    <div className="tab-background"  >
+                        <DashboardGoalTab key={item.id} goal={item} />
+                    </div>
+                    <h3 className="goal-name">
+                        {item.name}
+                    </h3>
+
+                </div>
             )
 
         }
@@ -43,17 +49,8 @@ const DashBoard = ({ user, banks, goals }) => {
     return (
         <>
             <div className="dashboard-container">
-                <div className="top-bar">
 
-                    <h2 className="title"> Hello, {user.username} </h2>
-
-                    <div className="funds-container">
-                        <h3> Funds </h3>
-                        <h2> {fundSum} </h2>
-                    </div>
-
-                </div>
-
+                <TopBar user={user} fundSum={fundSum} />
 
                 <div className="goals-summary-container">
 

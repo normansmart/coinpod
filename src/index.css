@@ -13,15 +13,17 @@ code {
 }
 
 .nav {
+  width: 13%;
+  height: 100vh;
   background-color: #333;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
   gap: 2rem;
-  padding: 1rem 1rem;
-  position: sticky; 
-  top: 0;
+float: left;
+  
+
 }
 
 .nav-logo {

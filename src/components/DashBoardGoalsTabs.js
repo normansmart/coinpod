@@ -12,6 +12,7 @@ function DashboardGoalTab({ goal }) {
             <div className="goal-dash-tabs" style={{ height: `${diff}%` }}>
               
             </div>
+            
         </>
     )
 }

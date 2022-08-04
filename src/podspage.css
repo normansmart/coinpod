@@ -1,0 +1,46 @@
+.pod-page-container {
+    width: 87%;
+    float: left;
+    text-align: center;
+
+}
+
+
+
+.goal-container {
+    width: 1000px;
+    display: inline-block;
+
+    background-color: aquamarine;
+}
+
+.pod-container {
+    width: 20%;
+    height: 200px;
+    margin: 2.5%;
+    position: relative;
+    background-color: beige;
+    float: left;
+}
+
+.goal-tracker {
+    width: 100%;
+    background-color: blueviolet;
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+}
+
+.goal-info {
+    width: 100%;
+
+
+    position: absolute;
+    z-index: 2;
+}
+
+.goal-name {
+    font-size: 16px;
+    font-weight: 500;
+
+}

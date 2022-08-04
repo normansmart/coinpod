@@ -1,8 +1,8 @@
 
 
 .dashboard-container{
-    width: 100%;
-   
+    width: 87%;
+   float: left;
 }
 
 
@@ -32,19 +32,46 @@ h2{
 }
 
 
-.tab-background{
-    width: 150px;
+.goals-summary-container{
+    width: 100%;
+    position: absolute;
+    display: inline-block;
+}
+
+
+
+.goal-tabs{
+    width: 13vw;
     height: 200px;
+    float: left;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+.tab-background{
+    width: inherit;
+    height: inherit;
     background-color: antiquewhite;
-    margin: 10px;
+   
+    
+   
 
 }
 
 .goal-dash-tabs{
-  width: 100%;
+  width: inherit;
    
  background-color: blueviolet;
- position: relative;
- bottom: 0%;
+ position: absolute;
+ bottom:  0%;
+ 
   
+}
+
+.goal-name{
+   width: 100%;
+   font-size: 25px;
+   font-weight: 400;
+   text-align: center;
 }

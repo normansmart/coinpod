@@ -5,6 +5,7 @@ import SignupForm from './components/SignupForm';
 import SigninPage from './components/SigninPage';
 import LoginForm from './components/LoginForm';
 import DashBoard from './components/DashBoard';
+import PodsPage from './components/PodsPage';
 import { useState , useEffect} from 'react';
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
 
 
 useEffect( () => {
-  fetch('http://127.0.0.1:3000/users/9')
+  fetch('http://127.0.0.1:3000/users/18')
   .then(response => response.json())
   .then( item => {
     setUsers(item)
@@ -31,7 +32,7 @@ useEffect( () => {
 } , [])
 
 
-
+console.log(Goals)
 
 
   return (
@@ -45,7 +46,8 @@ useEffect( () => {
 
         {/* <LoginForm/> */}
 
-        <DashBoard user={Users} banks={Banks} goals={Goals} />
+        {/* <DashBoard user={Users} banks={Banks} goals={Goals} /> */}
+        <PodsPage user={Users} banks={Banks} goals={Goals} />
       </div>
     </div>
   );
