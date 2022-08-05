@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import '../signup.css'
 
-function SignupForm() {
-
-    // const [errorMessages, setErrorMessages] = useState({});
-    // const [isSubmitted, setIsSubmitted] = useState(false);
-
-    // const renderErrorMessage = (name) =>
-    //     name === errorMessages.name && (
-    //         <div className="error">{errorMessages.message}</div>
-    // );
+function SignupForm({ onLogin, currentUserId }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,33 +19,35 @@ function SignupForm() {
               last_name: e.target.last_name.value
             }),
         })
-        // .then((r) => r.json())
-        // .then();
+        .then(r => r.json())
+        .then(user => onLogin(user.id));
     }
 
 
-  
-    return (
 
-        <div className="form">
-        <h2 className="title">Sign Up</h2>
-        {/* {isSubmitted ? <div>User is successfully logged in</div> : renderForm} */}
-        <form className="signup-form" onSubmit={ handleSubmit }>
+    if (!currentUserId) {
+        return (
 
-            <input type="text" name="first_name" required placeholder="First Name"/>
-            <input type="text" name="last_name" required placeholder="Last Name"/>
-            <input type="text" name="username" required placeholder="Username"/>
-            {/* {renderErrorMessage("uname")} */}
-            <input type="password" name="password" required placeholder="Password"/>
-            {/* {renderErrorMessage("pass")} */}
+            <div className="form">
+            <h2 className="title">Sign Up</h2>
+            {/* {isSubmitted ? <div>User is successfully logged in</div> : renderForm} */}
+            <form className="signup-form" onSubmit={ handleSubmit }>
+
+                <input type="text" name="first_name" required placeholder="First Name"/>
+                <input type="text" name="last_name" required placeholder="Last Name"/>
+                <input type="text" name="username" required placeholder="Username"/>
+                {/* {renderErrorMessage("uname")} */}
+                <input type="password" name="password" required placeholder="Password"/>
+                {/* {renderErrorMessage("pass")} */}
 
 
-            <div className="signup-button-container">
-                <input type="submit" />
+                <div className="signup-button-container">
+                    <input type="submit" />
+                </div>
+            </form>
             </div>
-        </form>
-        </div>
-    );
+        );
+    }
 }
 
 export default SignupForm;

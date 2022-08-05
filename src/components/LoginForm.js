@@ -1,11 +1,27 @@
 
 
-function LoginForm() {
+function LoginForm({ onLogin, currentUserId }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(e.target.uname.value)
-        console.log(e.target.pass.value)
+        console.log('logging in...')
+        fetch("/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              username: e.target.username.value,
+              password: e.target.password.value
+            }),
+        })
+        .then(res => res.json())
+        .then((user) => {
+            // console.log(user.id)
+            if (user.id) {
+                onLogin(user.id)
+            }
+        })
     };
 
     const renderForm = (
@@ -26,13 +42,16 @@ function LoginForm() {
         </div>
     );
 
-    return (
-        <div className="form">
-        <h2 className="title">Log In</h2>
-        {/* {isSubmitted ? <div>User is successfully logged in</div> : renderForm} */}
-        { renderForm }
-        </div>
-    );
+
+    if (!currentUserId) {
+        return (
+            <div className="form">
+            <h2 className="title">Log In</h2>
+            {/* {isSubmitted ? <div>User is successfully logged in</div> : renderForm} */}
+            { renderForm }
+            </div>
+        );
+    }
 }
 
 export default LoginForm;

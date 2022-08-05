@@ -1,13 +1,23 @@
 import React from "react";
 // import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ currentUserId, logout }) {
+
+  function LogoutButton({ currentUserId, logout }) {
+    if (currentUserId) {
+      return <button className="logout-button" onClick={logout}>Logout</button>
+    }
+    else {
+      return <></>
+    }
+  }
 
   return (
   
     <nav className="nav">
       <div>
         <h1>💰 CoinPod</h1>
+        <LogoutButton currentUserId={currentUserId} logout={logout}/>
         {/* <img className="nav-logo" src="" alt=""></img> */}
       
       {/* <Link to="/" className="site-title">CoinPod</Link> */}
