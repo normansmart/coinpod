@@ -34,7 +34,10 @@ useEffect( () => {
 } , [])
 
 
-console.log(Commits)
+
+
+
+
 
 
   return (

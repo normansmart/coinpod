@@ -9,7 +9,7 @@ function Pods({goal , handleSelect}) {
         <div className="pod-container" onClick={()=> handleSelect(goal)}>
 
             <div className="goal-tracker" style={{ height: `${diff}%` }}></div>
-            <div className="goal-tracker-reverse" style={{ height: `${diff}%` }}></div>
+          
 
             <h1 className="goal-name"> {goal.name} </h1>
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TopBar from "./TopBar";
 import Pods from "./Pods";
 import PodInfo from "./PodInfo";
@@ -7,26 +7,67 @@ import '../podspage.css'
 const PodsPage = ({ user, banks, goals }) => {
 
     const [SelectedPod, setSelectedPod] = useState({})
-    const [PodSetter , setPodSetter] = useState(false)
+
 
 
 
 
 
     function handleSelect(item) {
-
+        // put ternary in here
         setSelectedPod(item)
-        console.log(item)
+
+    }
+
+
+   
+
+    function PodUpdate(e) {
+
+        e.preventDefault()
+
+
+
+        const transfterAmount = e.target.transfer.value
+
+        const currentAmount = SelectedPod.current
+
+        const totalTransfer = currentAmount + transfterAmount
+
+
+
+        console.log(e)
+
+
+        fetch(`http://localhost:3000/goals/${SelectedPod.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                current: totalTransfer,
+            }),
+        })
+            .then(r => r.json())
+            .then(setSelectedPod)
+
+
+
     }
 
 
 
-    function handleDeleteClick(item) {
-        fetch(`http://127.0.0.1:3000/goals/${item.id}`, {
+
+
+
+
+
+    function handleDeleteClick() {
+        fetch(`http://127.0.0.1:3000/goals/${SelectedPod.id}`, {
             method: "DELETE"
         })
 
-        setPodSetter(!PodSetter)
+
     }
 
 
@@ -57,7 +98,8 @@ const PodsPage = ({ user, banks, goals }) => {
 
                 <div className="goal-container">
                     {goalList}
-                    <PodInfo goal={SelectedPod} remove={handleDeleteClick} />
+
+                    <PodInfo goal={SelectedPod} remove={handleDeleteClick} banks={banks} handleUpdate={PodUpdate} />
 
                 </div>
 

@@ -1,18 +1,19 @@
 import React from "react";
 import Pods from "./Pods";
 import PodSummary from "./PodSummary";
+import PodCommits from "./PodCommits";
 
-function PodInfo({goal , remove}){
+function PodInfo({goal , remove , banks , handleUpdate}){
     
 
 
 
     return(
-        <>
-    <PodSummary goal={goal} remove={remove} />
-        
+        <div className="pod-info-container">
+    <PodSummary goal={goal} remove={remove} banks={banks} handleUpdate={handleUpdate} />
+        <PodCommits />
 
-        </>
+        </div>
     )
 }
 
