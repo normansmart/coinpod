@@ -17,4 +17,4 @@ function DashboardGoalTab({ goal }) {
     )
 }
 
-export default DashboardGoalTab
+export default DashboardGoalTab;

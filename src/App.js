@@ -11,23 +11,41 @@ import { useState , useEffect} from 'react';
 function App() {
 
 
-  const [Users , setUsers] = useState({})
-  const [Banks , setBanks] = useState([])
-  const [Goals , setGoals] = useState([])
-  const [Commits , setCommits] = useState([])
+  const [currentUserId, setCurrentUserId] = useState(null)
+  const [users , setUsers] = useState([])
+  const [banks , setBanks] = useState([])
+  const [goals , setGoals] = useState([])
+  const [commits , setCommits] = useState([])
 
+  useEffect(() => {
+    fetch("/me")
+    .then(r => r.json())
+    .then((user) => {
+      if (user.id) {
+        setCurrentUserId(user.id)
+        setUsers(user)
+        setBanks(user.banks)
+        setGoals(user.goals)
+        setCommits(user.commits)
+      }
+    })
+  }, [])
 
+  function onLogin(userId) {
+    setCurrentUserId(userId)
+    console.log(`logged in user ${userId}`)
 
-useEffect( () => {
-  fetch('http://127.0.0.1:3000/users/7')
-  .then(response => response.json())
-  .then( item => {
-    setUsers(item)
-    setBanks(item.banks)
-    setGoals(item.goals)
-    setCommits(item.commits)
-   
+    fetch("/me")
+    .then(r => r.json())
+    .then( user => {
+      setUsers(user)
+      setBanks(user.banks)
+      setGoals(user.goals)
+      setCommits(user.commits)
+    })
+  }
 
+<<<<<<< HEAD
   })
 
   
@@ -38,20 +56,29 @@ useEffect( () => {
 
 
 
+=======
+  function logout() {
+    console.log('logging out')
+    fetch("/logout", {
+      method: "DELETE"
+    })
+    setCurrentUserId(null)
+  }
+>>>>>>> refs/remotes/origin/main
 
 
   return (
     <div>
       <div className="App">
-        <Navbar/>
+        <Navbar currentUserId={currentUserId} logout={logout}/>
       </div>
       <div>
-       {/* <SigninPage /> */}
+        <SignupForm onLogin={onLogin} currentUserId={currentUserId}/>
+        <LoginForm onLogin={onLogin} currentUserId={currentUserId}/>
+        {/* <SigninPage /> */}
 
-
-        {/* <LoginForm/> */}
-{/*  <DashBoard user={Users} banks={Banks} goals={Goals} /> */}
-        <PodsPage user={Users} banks={Banks} goals={Goals} />
+        {/*  <DashBoard user={Users} banks={Banks} goals={Goals} /> */}
+        <PodsPage user={users} banks={banks} goals={goals} />
       </div>
     </div>
   );

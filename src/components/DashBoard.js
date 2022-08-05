@@ -2,10 +2,9 @@ import React from "react";
 import '../dashboard.css'
 import DashboardGoalTab from "./DashBoardGoalsTabs";
 import TopBar from "./TopBar";
+
+
 const DashBoard = ({ user, banks, goals }) => {
-
-
-
 
     const funds = banks.map(
         (item) => {
@@ -13,11 +12,7 @@ const DashBoard = ({ user, banks, goals }) => {
         }
     )
 
-
     const fundSum = funds.reduce((a, b) => a + b, 0)
-
-
-  
 
 
     const goalTabs = goals.map(
